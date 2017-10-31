@@ -1,6 +1,6 @@
 # React Router Demo
 
-Simple dashboard page to show off React Router. This is the repository to go along with the _Learning React Router_ series on [Scotch.io](https://scotch.io).
+User dashboard using react router
 
 ## Getting Started
 
