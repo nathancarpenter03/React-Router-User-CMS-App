@@ -13,8 +13,10 @@ class UserInfo extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/users/1')
+    const { match: { params } } = this.props;
+    axios.get(`/api/users/${params.userId}`)
       .then(({ data: user }) => {
+        console.log('user', user);
         this.setState({ user });
       });
   }
