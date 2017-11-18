@@ -2,18 +2,14 @@
 
 User dashboard using react router
 
-## Getting Started
-
 To get started, download the repo, install the dependencies, and run the production server.
 
-```
 git clone https://github.com/scotch-io/react-router-course.git
 cd react-router-demo
-yarn
+yarn install
+yarn starat
 NODE_ENV=production yarn start
-```
-
-Open your browser to `http://localhost:3000` to see the application.
+Running on http://localhost:3000
 
 If you want to view the finished application, you will need to checkout the `finished` branch, install dependencies again, and then run the project.
 
