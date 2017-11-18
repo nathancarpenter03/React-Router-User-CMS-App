@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Image, Modal } from 'semantic-ui-react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class UserInfo extends React.Component {
   }
 
   handleDelete() {
-    axios.delete('/api/users/1')
+    const { match: { params } } = this.props;
+    axios.delete(`/api/users/${params.userId}`)
       .then(() => {
         console.log('user deleted');
       });
@@ -51,7 +53,10 @@ class UserInfo extends React.Component {
         <Modal.Actions>
           <Button positive>Edit</Button>
           <Button negative onClick={this.handleDelete}>Delete</Button>
-          <Button>Close</Button>
+          <Link to ="/users">
+            <Button>Close</Button>
+          </Link>
+          
         </Modal.Actions>
       </Modal>
     );

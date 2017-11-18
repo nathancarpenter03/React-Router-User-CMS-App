@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Table, Menu, Icon, Button } from 'semantic-ui-react';
 import { get } from 'axios';
 import times from 'lodash.times';
@@ -96,7 +97,9 @@ class Users extends React.Component {
           <Table.Body>
             {users.slice(startIndex, startIndex + TOTAL_PER_PAGE).map(user =>
               (<Table.Row key={user.id}>
-                <Table.Cell>{user.name}</Table.Cell>
+                <Table.Cell>
+                <Link to={`/users/${user.id}`}>{user.name}</Link>
+              </Table.Cell>
                 <Table.Cell>{user.email}</Table.Cell>
                 <Table.Cell>{user.phone}</Table.Cell>
                 <Table.Cell>{user.address}</Table.Cell>
