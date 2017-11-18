@@ -6,6 +6,7 @@ import store from 'store';
 import styles from './styles.css';
 import Users from '../Users';
 
+
 const handleLogout = () => () => {
   store.remove('loggedIn');
   console.log('you have been logged out. boo!');
