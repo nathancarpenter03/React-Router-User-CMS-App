@@ -23,12 +23,12 @@ class UserInfo extends React.Component {
   }
 
   handleDelete() {
-    const { match: { params } } = this.props;
-    axios.delete(`/api/users/${params.userId}`)
-      .then(() => {
-        console.log('user deleted');
-      });
-  }
+  const { match: { params }, history } = this.props;
+  axios.delete(`/api/users/${params.userId}`)
+    .then(() => {
+      history.push('/users');
+    });
+}
 
   render() {
     const { user } = this.state;
