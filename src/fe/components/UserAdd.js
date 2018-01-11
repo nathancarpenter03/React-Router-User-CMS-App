@@ -7,22 +7,23 @@ import Page from './Page';
 class UserAdd extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleSubmit(user) {
     post('/api/users', user)
-      .then(() => {
-        console.log('added:', user);
+      .then(({ data: u}) => {
+        const { history } = this.props;
+        history.push(`/users/${u.id}`)
       });
   }
 
   handleCancel(e) {
     e.preventDefault();
 
-    console.log('you have canceled');
+    const { history } = this.props;
+    history.push('users');
   }
 
   render() {

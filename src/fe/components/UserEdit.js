@@ -15,7 +15,8 @@ class UserEdit extends React.Component {
   }
 
   componentDidMount() {
-    get('/api/users/1')
+    const { match: { params}  } = this.props;
+    get(`/api/users/${params.userId}`)
       .then(({ data: user }) => {
         this.setState({ user });
       });
@@ -25,15 +26,16 @@ class UserEdit extends React.Component {
     patch(`/api/users/${user.id}`, user)
       .then(() => {
         this.setState({ user });
-
-        console.log('updated:', user);
+        const { history } = this.props;
+        history.push(`users/${user.id}`);
       });
   }
 
   handleCancel(e) {
     e.preventDefault();
-
-    console.log('you have canceled');
+    const { history } = this.props;
+    const { user } = this.state;
+    history.push(`users/${user.id}`);
   }
 
   render() {
