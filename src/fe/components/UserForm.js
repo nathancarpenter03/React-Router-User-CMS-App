@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from 'semantic-ui-react';
+import { Prompt } from 'react-router-dom';
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class UserForm extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
+        <Prompt message="Are you sure you want to complete this action?"/>
         <Form.Input
           label="Name"
           type="text"
